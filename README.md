@@ -1,42 +1,69 @@
 # Net_Practice
 
-## Notes
+## Some Notes
 
-1. Level 1:
+DEFINITIONS
 
-Task description:
-Goal 1: my PC need to communicate with my little brother's computer
-Goal 2: my Mac need to communicate with my little sister's computer
+LAN - Local Area Network
 
-The data in [ square brackets ] can be modified.
-The data in { curly braces } cannot be modified.
+WAN - Wide Are Network
 
-Data Level 1:
-```
-client B: my little brother's computer
-	Inerface B1
-	IP:		{ 104.94.23.12 }
-	Mask:	{ 255.255.255.0	}
-client A: my PC
-	Inerface A1
-	IP:		[ 104.93.23.285 ]
-	Mask:	{ 255.255.255.0	}
+SWITCH - Connects LAN devices
 
-client D: my little sister's computer
-	Inerface D1
-	IP:		[ 211.190.319.42 ]
-	Mask:	{ 255.255.0.0	}
-client C: my Mac
-	Inerface C1
-	IP:		{ 211.191.145.75 }
-	Mask:	{ 255.255.0.0	}
+ROUTER - Forwards data between different networks
 
-```
+SUBNET - Defines LAN Range
 
-```
+ROUTER (GATEWAY) Functionality:
 
-client :
-	Inerface 
-	IP:		{  }
-	Mask:	{  }
-```
+NAT - Network Address Translation
+
+FIREWALL - set of passive rules to protect the network from unauthorized access.
+
+DMZ - (demilitarize zone ?!)
+
+ARP - Address Resolution Protocol
+
+HTTP - Hyper Text Transfer Protocol
+
+SSL - Secure Socket Layer
+
+TLS - Transport Layer Security
+
+HTTPS - HTTP secured with SSL/TSL
+
+FTP - File Transfer Protocol
+
+SMTP - Simple Mail Transfer Protocol
+
+DNS - Domain Name System
+
+IP Address = Host’s Identity on the Internet
+
+SM - Subnet Mask
+
+DG - Default Gateway (router’s IP address)
+
+DHCP - Dynamic Host Config. Protocol
+
+TCP/IP  - Transmission Control Protocol/Internet Protocol
+
+UDP - User Datagram Protocol
+
+CIDR - Classless Inter-domain Routing
+
+=============================================================
+
+Network Address Translation - remapping IP address for the trafic routing through the network.
+
+PORT FORWARDING - redirects a communication request address and port number combination to another while the packets traversing a network gateway (router or firewall).
+
+SUBNET MASK eg: (/24) == (255.255.255.0)
+
+IP, SM and DG are necessary components to be able to speak to any FTP server in the internet given its IP address. And to speak to any other server (SMTP - mail, WEB - http )  in the internet DNS’s IP is needed as well in order to translate server’s (public)address into its IP address.
+
+So, IP, SM, DM and DNS must be configured on any host for it to be able to communicate with the internet.
+
+DHCP is a protocol which configures IP, SM, DM, DSM for each host device automatically once it is connected to the (new/old) network.
+
+
