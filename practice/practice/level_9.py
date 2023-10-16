@@ -151,28 +151,39 @@ to identify the number of subnets to handle.
 
 In this task there are 4 subnets (exccept connection to Internet, R12) 
 with the folowing interfaces in each subnet:
-subnet 1: A1, B1, R11
-subnet 2: R13, R21
-subnet 3: R22, C1
-subnet 4: R23, D1
+Subnet 1: A1, B1, R11
+Subnet 2: R13, R21
+Subnet 3: R22, C1
+Subnet 4: R23, D1
 
 Breaking down the approach to handle each subnet:
-subnet 1: A1, B1, R11 - there is no fixed IP address given in this subnet.
-So, we can choose arbitrary IP's, avoiding the IP's from the reserved range.
-There is mask given in R11 interface, so we can distribute it accordingly.
 
-subnet 2: R13, R21 - there is no fixed IP address given in this subnet either.
-The mask is given in R21 interface, so we can copy it to R13.
-Current mask allows to use only 2 IP addresses in this subnet.
-So, we might use the end of the available range, which also corresponds 
-to the Network address's last (4th) octet (-.-.-.253, 254).
+Subnet 1: (A1, B1, R11)
+	There is no fixed IP address given in this subnet. 
+	So, we can choose arbitrary IP's, avoiding the IP's from the reserved range.
+	For simplicity we can use the template IP given in client_A'a or B's routing table.
+	There is mask given in R11 interface, so we just distribute it accordingly.
 
-subnet 3: R22, C1 - there is no fixed IP address not mask in this subnet either.
-We might play around with the IP addresses and masks in this subnet.
-Keeping in mind that chosen subnet mask should handle at least 4 subnets.
+subnet 2: (R13, R21)
+	There is no fixed IP address given in this subnet either.
+	The mask is given in R21 interface, so we can copy it to R13.
+	Current mask allows to use only 2 IP addresses in this subnet.
+	So, we might use the end of the available range, which also corresponds 
+	to the Network address's last (4th) octet (-.-.-.253, 254).
+	For simplicity we can use the template IP given in router_R2's or R1's routing table.
 
-subnet 4: R23, D1 - here we can find the fixed IP address and mask.
-So, just arranging the IPs and mask accordingly.
+subnet 3: (R22, C1)
+	Tthere are no fixed IPs nor mask in this subnet.
+	We might play around with the IP addresses and masks in this subnet.
+	Keeping in mind that chosen subnet mask should handle at least 4 subnets.
+	Or we can just use the template IP used in previous Subnet 2 (R13, R21)
+	as well as the mask from R21 interface.
+	But the IP range shall be different from the previous Subnet 2.
+	We can pick the previous available range from Subnet 2 (R13, R21)
+	"-.-.-.253, 254" and use the next available range "-.-.-.249, 250".
+
+Subnet 4: (R23, D1)
+	Here we can find the fixed IP address and mask. So, just distribute accordingly.
 
 Once this is done, we can fill in the internet_I's routing table, where
 we need to use the Network address of each subnet as the "destination", and
@@ -189,9 +200,9 @@ There is no need to fill in the entire table here.
 2 entries which drive the trafic both ways would be sufficient. 
 
 For debugging we still can use the log table in the right bottom corner.
-Even if it might be confusing some times, it still provides some useful information.
+Even if it might be confusing, it still provides some useful information.
 
-Another approach would be to follow each Goal from top to bottom 
+Another approach would be to follow/focus each Goal from top to bottom 
 and fill in the parameters accordingly.
 """
 

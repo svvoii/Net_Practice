@@ -98,37 +98,67 @@ of the internet_I.
 It gives us the idea of the IP address and the mask 
 which should cover the subnets of the given network layout.
 
-We can use that IP address (first 3 octets) in all subnets 
+Given the network address (-.-.-.0) and the mask (/26 or 255.255.255.192)
+in the internet_I's routing table, tels us that the network is broken down into 4 subnets.
+	-.-.-.0 - .63	# this is indicated in Internet's routing table as destination !
+	-.-.-.64 - .127
+	-.-.-.128 - .191
+	-.-.-.192 - .255
+However, having that mask (/26) in the internet_I's routing table, tels us that 
+the IP addresses range is limited to 62 IP addresses at every host side:
+	-.-.-.0 - .63	# as indicated in Internet's routing table as destination !
+
+This is important to remember when we will be filling in the missing parameters !
+
+To continue we can use that IP address (first 3 octets) in all subnets 
 and set the proper mask for each subnet.
 
-The mask for each subnet must be higher (/27, /28 ..) 
+For simplicity we can use same mask for each subnet ("/28" or "255.255.255.240").
+Just need to make sure that the host part of the IP addresses are within the
+range of (-.-.-.1 - .62) and do not overlap.
+
+Here we have the following subnets (exccept the Internet - R12):
+Subnet 1: R13, R21
+Subnet 2: R22, C1
+Subnet 3: R23, D1
+
+The mask for each subnet must be higher (/27, /28, /29, /30), 
 than the mask given in the internet_I "destination" (/26).
 
-Since the client_D already have the mask (/28 or 255.255.255.240) set 
-we can use it in the client_C's subnet as well.
-Since routing table of the router_R2 alraday have the "next hop" parameter (132.251.9.62),
-which is the IP address of the router_R1's interface R13, we can use it
-for router_R1's interface R21 IP but decremented by 1.
-The mask for the subnet with interfaces R21 and R13 can be set to (/30 or 255.255.255.252),
-which will allow to use only 2 IP addresses in this subnet.
+Subnet 1: (R13, R21)
+	Since routing table of the router_R2 alraday have the "next hop" parameter (132.251.9.62),
+	which is the IP address of the router_R1's interface R13, we can use it
+	for router_R1's interface R21 IP but decremented by 1.
+	The mask for the subnet with interfaces R21 and R13 can be set to (/30 or 255.255.255.252),
+	which will allow to use only 2 IP addresses in this subnet.
+	(we also can use the same mask as given in R12 or D1 "255.255.255.240" or "/28")
 
-Another important point is to chose proper IP addresses range for each subnet.
-Given the subnet mask (\26) we can use up to 4 subnets:
--.-.-.0 - .63	# this has been taken by the subnet with interfaces R21 and R13.
--.-.-.64 - .127
--.-.-.128 - .191
--.-.-.192 - .255
-However we can break down the folowing subnets into smaller ones.
-client_D's subnet has the mask (/28 or 255.255.255.240) which allows to use 
-up to 16 subnets with 14 available IP addresses each. However, we need only 2 IP addresses
-and only two subnets. So, we can use the folowing IP addresses range:
--.-.-.1 - .14
--.-.-.17 - .30
-and so on.
-We can use these for either client_D or client_C. 
-Keeping in mind that if we decide to use higher range it should not overlap wit the 
-IP addresses used for interfaces R21 and R13 (-.-.-.62 and -.-.-.61).
-so the range (-.-.-49 - .62) is not suitable for client_D's nor client_C's subnets.
+Subnet 2: (R22, C1)
+	Since the client_D already have the mask (/28 or 255.255.255.240) fixed,
+	we can use it in the client_C's subnet as well.
+	We use the same, network part of the IP address for all subnets.
+	The host part must be in range of (-.-.-.1 - .62) and do not overlap with other subnets.
+	The ranges shall correspond the the mask used in this subnet but not overlap with another subnet.
+	For example, if we use the mask (/28 or 255.255.255.240), there can be 16 subnets with 14 IP addresses each.
+
+Subnet 3: (R23, D1)
+	We use the same, network part of the IP address for all subnets.
+	client_D's subnet has the mask (/28 or 255.255.255.240) which allows to use 
+	up to 16 subnets with 14 available IP addresses each. However, we need only 2 IP addresses
+	and only two subnets. So, we can use the folowing IP addresses range:
+	-.-.-.1 - .14
+	-.-.-.17 - .30
+	and so on.
+
+To sum up:
+The host part must be in range of (-.-.-.1 - .62) and do not overlap with other subnets.
+The main idea is to make sure that the host part of the IP addresses are within the
+range of (-.-.-.1 - .62) and do not overlap with one another given respective subnet.
+
+For example, if we use the mask (/28 or higher)
+And IP addresses used for interfaces R21 and R13 (-.-.-.62 and -.-.-.61).
+Then the range (-.-.-49 - .62) is not suitable for client_D's nor client_C's 
+given its respective subnet of (/28, "255.255.255.240").
 
 Another point to remember that if any subnet need to communicate with the internet_I,
 some, specific Network addresses can not be used.
@@ -137,7 +167,7 @@ For example these are reserved for Private Networks, and should be avoided:
 172.16.0.0
 192.168.0.0
 
-'Pay attention since, these are used in this task by default'.
+PS: 'these are usualy used in the tasks by default'.
 """
 
 # Paramters to be added:

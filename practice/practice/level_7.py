@@ -92,7 +92,7 @@ Given network layout in this task there should have at least 3 subnetworks to ma
 2nd subnet: router_R2's interface R22 and client_C's interface
 3rd subnet: router_R1's interface R12 and router_R2's interface R21
 
-Since the task does not precise any subnet mask it is required to chose the proper one.
+Since the task doe not precise any subnet mask it is required to chose the proper one.
 So, we can check the subnetting table to identify which subnet mask can handle at least 3 subnets
 in this case the '/26' or '255.255.255.192` submask can handle up to 4 subnets with the folowing 
 IP addresses range:
