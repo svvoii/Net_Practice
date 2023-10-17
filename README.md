@@ -2,8 +2,10 @@
 
 This repository contains notes and explanations for general networking concepts, as well as links to videos with more extensive explanations of the topics.
 
-### PDF with Notes
-A PDF with notes is available in this repository. You can find it at [Net-Practice_sbocanci.pdf](Net-Practice_sbocanci.pdf).
+### Notes
+A PDF with notes is available in this repository. 
+You can find it at 
+[Net-Practice_sbocanci.pdf](Net-Practice_sbocanci.pdf).
 
 ### Practice Exercises
 For a more detailed walkthrough and description of the tasks and approaches to solve them, view the `practice` folder. 
