@@ -2,68 +2,16 @@
 
 ## Some Notes
 
-DEFINITIONS
+In the following file you will find the notes and explanation to some general concepts.
+As well as the links to the videos with extencive explanation of the topic.
+[PDF](Net-Practice_sbocanci.pdf)
 
-LAN - Local Area Network
+For more detailed walk-trough and description of the tasks and approach to solve them you can view the `practice` folder here:
+[Practice Folder](./practice/)
 
-WAN - Wide Are Network
+# subnet mask table:
+https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?usp=sharing
+![Alt text](image.png)
 
-SWITCH - Connects LAN devices
-
-ROUTER - Forwards data between different networks
-
-SUBNET - Defines LAN Range
-
-ROUTER (GATEWAY) Functionality:
-
-NAT - Network Address Translation
-
-FIREWALL - set of passive rules to protect the network from unauthorized access.
-
-DMZ - (demilitarize zone ?!)
-
-ARP - Address Resolution Protocol
-
-HTTP - Hyper Text Transfer Protocol
-
-SSL - Secure Socket Layer
-
-TLS - Transport Layer Security
-
-HTTPS - HTTP secured with SSL/TSL
-
-FTP - File Transfer Protocol
-
-SMTP - Simple Mail Transfer Protocol
-
-DNS - Domain Name System
-
-IP Address = Host’s Identity on the Internet
-
-SM - Subnet Mask
-
-DG - Default Gateway (router’s IP address)
-
-DHCP - Dynamic Host Config. Protocol
-
-TCP/IP  - Transmission Control Protocol/Internet Protocol
-
-UDP - User Datagram Protocol
-
-CIDR - Classless Inter-domain Routing
-
-=============================================================
-
-Network Address Translation - remapping IP address for the trafic routing through the network.
-
-PORT FORWARDING - redirects a communication request address and port number combination to another while the packets traversing a network gateway (router or firewall).
-
-SUBNET MASK eg: (/24) == (255.255.255.0)
-
-IP, SM and DG are necessary components to be able to speak to any FTP server in the internet given its IP address. And to speak to any other server (SMTP - mail, WEB - http )  in the internet DNS’s IP is needed as well in order to translate server’s (public)address into its IP address.
-
-So, IP, SM, DM and DNS must be configured on any host for it to be able to communicate with the internet.
-
-DHCP is a protocol which configures IP, SM, DM, DSM for each host device automatically once it is connected to the (new/old) network.
-
+Project was submitted on Oct 17, 2023.
 
