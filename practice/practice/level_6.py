@@ -1,14 +1,6 @@
 # Level 6:
 
-# Task description:
-
-# client_A is connected to switch_S and
-# switch_S is connected to router_R through interface R1 and
-# router_R connected to the internet_I through interface R2
-
-# Goal 1: "interface 'A1' need to communicate with the Internet interface 'Somewhere on the Net'"
-
-# Given network settings parameters:
+# Network layout / topology:
 client_A = {
     "name": "webserv.non-real.com",
     "interface": "A1",
@@ -49,16 +41,32 @@ internet_I = {
 	"Next hop": "163.172.250.12"
 }
 
-# The following parameters need to be modified to achieve the Goal :
+
+# Topology description:
+"""
+client_A is connected to switch_S and
+switch_S is connected to router_R through interface R1 and
+router_R connected to the internet_I through interface R2
+"""
+
+# Task description:
+"""
+Goal 1: "interface 'A1' need to communicate with the Internet interface 'Somewhere on the Net'"
+"""
+
+# Solution description and approach:
+"""
+Adding to the previous task, the concept of routing table is introduced.
+Here we have a routing table from at the Internet interface.
+The first field in the routing table is "Destination".
+It should contain the destination IP range, "Network address" with the mask as a suffix,
+indicating the range of IP addresses that can be reached through this interface.
+"""
+
+# Paramters to be added:
 client_A["Mask"] = "255.255.255.128"
 client_A["Destination"] = "default" # or 0.0.0.0/0
 client_A["Next hop"] = "62.117.76.129"
 router_R["interfaces"][0]["IP"] = "62.117.76.129" # technically can be any IP in the range according to mask
 router_R["Destination"] = "default"
 internet_I["Destination"] = "62.117.76.128/25" # this one should be the destination IP range with netmask for client_A
-
-"""
-The main take away from this task is to understand the Routing table
-which consists of DESTINATION and NEXT HOP (next router address)
-Destination is indicated as IP range according to /25 mask
-"""

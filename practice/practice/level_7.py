@@ -1,12 +1,6 @@
 # Level 7:
 
-# Task description:
-
-# client_A is connected to router_R1's interface R11, router_R1's interface R12 is connected to router_R2's interface R21, client_C is connected to router_R2's interface R22.
-
-# The Goal is to establish communication between client_A and client_C
-
-# Network parametersa as given:
+# Network layout / topology:
 client_A = {
     "name": "dev.non-real.net",
     "interface": "A1",
@@ -61,31 +55,19 @@ client_C = {
 	"Next hop": ""
 }
 
+# Topology description:
 """
-The following parameters need to be added to achieve the Goal :
+client_A is connected to router_R1's interface R11, 
+router_R1's interface R12 is connected to router_R2's interface R21, 
+client_C is connected to router_R2's interface R22.
 """
-client_A["IP"] = "101.198.14.2"
-client_A["Mask"] = "255.255.255.192" # or "/26"
-client_A["Destination"] = "0.0.0.0/0" # or "default"
-client_A["Next hop"] = "101.198.14.1" # interface of the nearest connected router
 
-router_R1["interfaces"][0]["Mask"] = "255.255.255.192" # or "/26"
-router_R1["interfaces"][1]["Mask"] = "255.255.255.128" # also can be "/25" or higher but not lower since there should be roo m for at least 3 sub-networks
-router_R1["Destination"] = "0.0.0.0/0" # or "default"
-router_R1["Next hop"] = "101.198.14.253"
+# Task description:
+"""
+Goal: client_A need to communicate with client_C
+"""
 
-router_R2["interfaces"][0]["IP"] = "101.198.14.253"
-router_R2["interfaces"][0]["Mask"] = "255.255.255.128" # should be the same as R1 mask
-router_R2["interfaces"][1]["IP"] = "101.198.14.65" # can bi in the range from -.-.-.65 to 126, according to subnet mask /26
-router_R2["interfaces"][1]["Mask"] = "255.255.255.192" # or "/26" also can be /27, /28, /29, /30 but not smaler that /26
-router_R2["Destination"] = "101.198.14.254"
-router_R2["Next hop"] = "0.0.0.0/0"
-
-client_C["IP"] = "101.198.14.66" # can bi in the range from -.-.-.65 to 126, according to subnet mask /26
-client_C["Mask"] = "255.255.255.192" # or "/26"
-client_C["Destination"] = "0.0.0.0/0" # or "default"
-client_C["Next hop"] = "101.198.14.65" # interface of the nearest connected router
-
+# Solution description and approach:
 """
 Given network layout in this task there should have at least 3 subnetworks to manage.
 1st subnet: router_R1's interface R11 and client_A's interface
@@ -112,3 +94,26 @@ chosen for that subnet
 The routing table in this task is more straight forward since it is not necessary to use 
 specific destination, 'defailt' / '0.0.0.0/0' value would be sufficient.
 """
+
+# Paramters to be added:
+client_A["IP"] = "101.198.14.2"
+client_A["Mask"] = "255.255.255.192" # or "/26"
+client_A["Destination"] = "0.0.0.0/0" # or "default"
+client_A["Next hop"] = "101.198.14.1" # interface of the nearest connected router
+
+router_R1["interfaces"][0]["Mask"] = "255.255.255.192" # or "/26"
+router_R1["interfaces"][1]["Mask"] = "255.255.255.128" # also can be "/25" or higher but not lower since there should be roo m for at least 3 sub-networks
+router_R1["Destination"] = "0.0.0.0/0" # or "default"
+router_R1["Next hop"] = "101.198.14.253"
+
+router_R2["interfaces"][0]["IP"] = "101.198.14.253"
+router_R2["interfaces"][0]["Mask"] = "255.255.255.128" # should be the same as R1 mask
+router_R2["interfaces"][1]["IP"] = "101.198.14.65" # can bi in the range from -.-.-.65 to 126, according to subnet mask /26
+router_R2["interfaces"][1]["Mask"] = "255.255.255.192" # or "/26" also can be /27, /28, /29, /30 but not smaler that /26
+router_R2["Destination"] = "101.198.14.254"
+router_R2["Next hop"] = "0.0.0.0/0"
+
+client_C["IP"] = "101.198.14.66" # can bi in the range from -.-.-.65 to 126, according to subnet mask /26
+client_C["Mask"] = "255.255.255.192" # or "/26"
+client_C["Destination"] = "0.0.0.0/0" # or "default"
+client_C["Next hop"] = "101.198.14.65" # interface of the nearest connected router
