@@ -1,20 +1,31 @@
 # Net_Practice
 
-## Some Notes
+## Notes
 
-In the following file you will find the notes and explanation to some general concepts.
-As well as the links to the videos with extencive explanation of the topic.
-[PDF](Net-Practice_sbocanci.pdf)
+This repository contains notes and explanations for general networking concepts, as well as links to videos with more extensive explanations of the topics.
 
-For more detailed walk-trough and description of the tasks and approach to solve them you can view the `practice` folder here:
-[Practice Folder](./practice/practice/)
+### PDF with Notes
 
-Inside you will find the `.py` files. Let this not discourage you ! 
-I use it just for simplicity of describing the given network layout.
-Look for `escription and approach` in the comments.
+A PDF with notes is available in this repository. You can find it at [Net-Practice_sbocanci.pdf](Net-Practice_sbocanci.pdf).
 
-[subnet mask table](https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?usp=sharing)
-![Alt text](image.png)
+### Practice Exercises
 
-Project was submitted on Oct 17, 2023.
+For a more detailed walkthrough and description of the tasks and approaches to solve them, view the `practice` folder. The practice exercises are in `.py` files for simplicity in describing the given network layouts. Look for the `description and approach` in the comments.
 
+You can find the practice exercises at [./practice/practice/](./practice/practice/).
+
+### Subnet IP Ranges Spreadsheet
+
+Click the link below to access a Google Doc spreadsheet that displays the available IP ranges for any given subnet. This spreadsheet can be used as a reference when setting up network configurations or troubleshooting connectivity issues.
+
+[Subnet IP Ranges Spreadsheet](https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?usp=sharing)
+
+### Subnet Mask Table
+
+![Subnet Mask Table *(short)*](image.png)
+
+This table provides a quick reference for subnet masks.
+
+### Project Information
+
+This project was submitted by [sbocanci](https://github.com/svvoii) on Oct 17, 2023 as a part of common core at [42 Paris](https://42.fr/en/homepage/).
