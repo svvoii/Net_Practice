@@ -1,29 +1,78 @@
 # Net_Practice
 
-This repository contains notes and explanations for general networking concepts, as well as links to videos with more extensive explanations of the topics.
+## Overview
 
-### Notes
-A PDF with notes is available in this repository. 
-You can find it at 
-[Net-Practice_sbocanci.pdf](Net-Practice_sbocanci.pdf).
+This repository provides a foundational guide to general networking concepts, designed to support both theoretical understanding and practical application. It includes detailed notes, video references, and Python-based practice exercises that illustrate key networking scenarios and layout problems.   
 
-### Practice Exercises
-For a more detailed walkthrough and description of the tasks and approaches to solve them, view the `practice` folder. 
-The practice exercises are in `.py` files for simplicity in describing the given network layouts.
-Look for the `description and approach` in the comments.
+Perfect for learners and professionals preparing for networking exams or looking to sharpen their IP addressing, subnetting, and configuration skills.   
 
-You can find the practice exercises at [./practice/practice/](./practice/practice/).
+---
 
-### Subnet IP Ranges Spreadsheet
-Click the link below to access a Google Doc spreadsheet that displays the available IP ranges for any given subnet. This spreadsheet can be used as a reference when setting up network configurations or troubleshooting connectivity issues.
+## Features  
 
-[Subnet IP Ranges Spreadsheet](https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?usp=sharing)
+📘 [PDF Notes](Net-Practice_sbocanci.pdf): Concise, well-structured explanations of core networking topics   
+🎥 Video Resources: Links to external video tutorials for deeper learning   
+🧪 Practice Exercises: Python-based visualizations and explanations of different networking scenarios   
+📊 [Subnet IP Ranges Spreadsheet](https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?pli=1&gid=1481177900#gid=1481177900): Google Sheet to help calculate and understand subnetting   
+🧮 [Subnet Mask Table](image.png): Quick-reference guide for subnet mask values  
 
-### Subnet Mask Table
-This table provides a quick reference for subnet masks.
+---
+
+## Tech Stack
+
+| Category | Technologies |
+| -------- | ------------ |
+| Format  | PDF, Markdown |
+| Tools   | Google Sheets |
+
+---
+
+## File Structure
+
+```bash
+Net_Practice/
+│
+├── Net-Practice_sbocanci.pdf        # Main PDF notes
+├── practice/
+│   ├── net_practice/                # Practice exercises (to open in browser)
+│   └── practice/                    # Python exercises with inline explanations
+└── Subnet Mask Table.png            # Reference image
+```
+
+---
+
+## Resources
+
+📄 [PDF Notes](Net-Practice_sbocanci.pdf)  
+🗂️ [Practice Exercises Folder](practice/net_practice/index.html) (to open in a browser)   
+📊 [Subnet IP Ranges Spreadsheet](https://docs.google.com/spreadsheets/d/1CZpE01MkIXhuPhpOcWyGGSubqu9pUB6CzWMuDACY_xs/edit?pli=1&gid=1481177900#gid=1481177900)  
+🧮 [Subnet Mask Table](image.png)  
+
 ![Subnet Mask Table](image.png)
 
+---
 
-### Project Information
+## Lessons Learned
 
-This project was submitted by [sbocanci](https://github.com/svvoii) on Oct 17, 2023 as a part of common core at [42].
+Working through this repository improves:   
+- Understanding of networking fundamentals (IP, subnetting, routing basics)   
+- Ability to break down and visualize complex network problems   
+- Practical problem-solving using simplified code representations   
+- Efficient use of subnet references and masks for real-world network setup   
+
+---
+
+## Try it out!
+
+Once the repository is cloned, open the `practice/net_practice/index.html` file in a web browser to view / try the practice exercises.  
+
+---
+
+## Author
+
+[My GitHub](https://github.com/svvoii)  
+[My LinkedIn](https://www.linkedin.com/in/bocancia/)  
+[My Portfolio](https://sbocanci.me/)  
+
+---
+
